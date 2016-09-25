@@ -60,6 +60,12 @@ if !exists("*Autopep8(...)")
             let autopep8_aggressive=""
         endif
 
+        if exists("g:autopep8_aggressive_aggresive")
+            let autopep8_aggressive_aggressive=" --aggressive --aggressive "
+        else
+            let autopep8_aggressive_aggressive=""
+        endif
+
         if exists("g:autopep8_indent_size")
             let autopep8_indent_size=" --indent-size=".g:autopep8_indent_size
         else
@@ -93,7 +99,7 @@ if !exists("*Autopep8(...)")
 
 		" show diff
 		if !exists("g:autopep8_disable_show_diff")
-		  botright new autopep8
+		  vertical new autopep8
 		  setlocal buftype=nofile bufhidden=wipe nobuflisted noswapfile nowrap
 		  silent execute ':put =diff_output'
 		  setlocal nomodifiable
